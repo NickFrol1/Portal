@@ -1,9 +1,12 @@
 #!groovy
 
 def call(Closure stages) {
-	timestamps{
-		agent any {
-			stages()
+		agent any 
+		tools {
+		maven 'maven'
+		allure 'allure'
 		}
+		{
+			stages()	
 	}
 } 
